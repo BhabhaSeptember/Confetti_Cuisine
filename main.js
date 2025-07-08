@@ -18,7 +18,10 @@ const express = require("express"),
   connectFlash = require("connect-flash"),
   User = require("./models/user");
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 mongoose.set("useCreateIndex", true);
 
 app.set("port", process.env.PORT || 3000);
